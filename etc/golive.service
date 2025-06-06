@@ -1,12 +1,13 @@
 [Unit]
 Description=GoLive Streaming service
+After=network-online.target
 
 [Service]
 WorkingDirectory=/home/pi/golive
 ExecStart=/home/pi/venv/bin/python3 /home/pi/golive/src/livestream.py
-SyslogIdentifier=SRV_CAMERA
+SyslogIdentifier=SRV_GOLIVE
 Restart=always
 RestartSec=30
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=network-online.target
